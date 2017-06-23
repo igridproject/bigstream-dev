@@ -1,0 +1,21 @@
+{
+    "job_id": "example",
+    "active": true,
+    "trigger": {
+        "type": "cron",
+        "cmd": "29,59 * * * * *"
+    },
+    "data_in": {
+        "type": "example"
+    },
+    "data_transform": {
+        "type": "jsmap",
+        "param": {
+            "script": "data=(new Date()).getTime();meta.from='example'",
+            "text": "Hi kamron, current timestamp is ${Math.round(data/1000)}"
+        }
+    },
+    "data_out": {
+        "type": "console"
+    }
+}
